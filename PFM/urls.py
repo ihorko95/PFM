@@ -21,7 +21,7 @@ from .views import *
 urlpatterns = [
     path('', redirect_FM),
     path('manager/', include('manager.urls')),
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
 
 
 ]

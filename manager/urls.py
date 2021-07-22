@@ -19,8 +19,8 @@ from .views import *
 
 
 urlpatterns = [
-    path('transacrions/' ,transaction_list, name='transaction_url'),
+    path('transactions/', transaction_list, name='transaction_url'),
     path('categories/', category_list, name='categories_url'),
-    path('category/<str:slug>', category_details, name='category_details_url')
+    path('category/<str:slug>/', category_details, name='category_details_url')
 
 ]
