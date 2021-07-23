@@ -12,7 +12,7 @@ class Transactions(models.Model):
     date = models.DateField(auto_now_add=True)
 
     def get_absolute_url(self):
-        return reverse('transactions_list_url', kwargs={'slug': self.slug})
+        return reverse('transaction_details_url', kwargs={'slug': self.slug})
     class Meta:
         verbose_name='Transaction'
         verbose_name_plural = 'Transactions'

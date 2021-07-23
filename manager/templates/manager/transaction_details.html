@@ -1,0 +1,14 @@
+{% extends 'manager/manager_base.html' %}
+{% block title %}
+ {{ transaction.title|title }}- {{ block.super }}
+{% endblock %}
+{% block content %}
+<div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+  <div class="card-header">{{ transaction.category}}</div>
+  <div class="card-body">
+    <h5 class="card-title">{{ transaction.title|title }}</h5>
+      <p class="card-text">{{ transaction.total }}</p>
+    <p class="card-text">{{ transaction.description }}</p>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{#{% extends 'manager/manager_base.html' %} !!!!!!!!!!!!!!!!!!!!!#}
+{% for category in cats %}
+    {% if category.pk == cat_selected%}
+<span class ='selected' href="{% url 'show_cats_url' slug=category.slug %}">{{ category.title }}</span>
+        {% else %}
+        <a class ='' href="{% url 'show_cats_url' slug=category.slug %}">{{ category.title }}</a>
+    {% endif %}
+{% endfor %}

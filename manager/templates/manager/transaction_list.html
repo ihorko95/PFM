@@ -1,19 +1,34 @@
 {% extends 'manager/manager_base.html' %}
+{% load manager_tags %}
 {% block title %}
 Transaction List - {{ block.super }}
 {% endblock %}
 {% block content %}
-            <ol class="list-group list-group-numbered">
+    {% if not cat_selected %}
+         <span class="selected" href="{% url 'transaction_url'%} ">All</span>
+        {% else %}
+ <a href="{% url 'transaction_url'%} ">All</a>
+    {% endif %}
+{% shows_categories sort='-title' cat_selected=cat_selected%}
+            <ul class="list-group ">
     {% for trans in content %}
+
   <li class="list-group-item d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">
-      <div class="fw-bold">{{ trans.title|title }}</div>
+      <a class="fw-bold" href="{{ trans.get_absolute_url }}">{{ trans.title|title }}</a>
       {{ trans.description|truncatewords:5}}
     </div>
     <span class="badge bg-primary rounded-pill">{{trans.total}}₴</span>
   </li>
 
     {% endfor %}
-</ol>
-{#<h3>{{content}}</h3>#}
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <p class="fw-bold">Total:</p>
+    </div>
+    <span class="badge bg-primary rounded-pill ">{{summ}}₴</span>
+  </li>
+</ul>
+
+
 {% endblock %}
